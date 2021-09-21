@@ -1,3 +1,45 @@
+# famly-demo
+
+famly-demo is a React demo project.
+
+## Requirements
+
+- Node.js/npm
+
+## Setup instructions
+
+1. Clone the repository or download it as .zip file
+
+2. Rename .env.example file to .env file.
+
+```bash
+ren “.env.example” “.env”
+```
+
+3. Install dependencies
+
+```bash
+npm install
+```
+
+4. Run application
+
+```bash
+npm start
+```
+
+## About app design
+
+Provided API has many vulnerabilities, such as XSRF. Since the access token has to be placed somewhere, my decision was to place it in a .env file and retrieve it via API context, as it is more secure than web storage (localStorage, sessionStorage) usage.
+
+For API calls axios is used instead of fetch, as it is more secure and has built in XSFR protection.
+
+While implementing the axios POST method for check-in I realised that many children had an error response. After checking childId provided within your github repo I found the same child in my fetched data, so I found some children at the end of the list that can be checked in. Error handling is implemented to inform users of errors with toast messages.
+
+Regarding app performance, lazy-load is used and memorization as well. Photos of children are places for better UI/UX even though decreasing performance a bit.
+
+I added some UI/UX just to bring some life to the app :)
+
 # Interested in working for Famly?
 
 Give us a chance to see your beautiful code! 🤩 
